@@ -1,0 +1,7 @@
+-e .
+
+coverage
+flake8
+nose
+pre-commit
+pylint

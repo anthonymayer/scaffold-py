@@ -1,30 +1,26 @@
+from setuptools import find_packages
+from setuptools import setup
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+setup(
+    name='Scaffold',
+    description='Simple project scaffolding for Python',
+    url='https://github.com/anthonymayer/scaffold-py',
+    version='0.1.6',
 
-config = {
-    'description': 'Simple project scaffolding for Python',
-    'author': 'Aaron Stannard',
-    'url': 'https://github.com/Aaronontheweb/scaffold-py',
-    'download_url': 'https://github.com/Aaronontheweb/scaffold-py/archive/v0.1.5.tar.gz',
-    'author_email': 'aaron@stannardlabs.com',
-    'version': '0.1.5',
-    'install_requires': ['nose'],
-    'packages': ['scaffold'],
-    'scripts': [],
-    'name': 'Scaffold',
-    'entry_points': {
+    platforms='all',
+    classifiers=[
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+    ],
+
+    packages=find_packages('.', exclude=('tests*', 'testing*')),
+    entry_points={
         'console_scripts': [
             'pyscaffold = scaffold.__main__:main',
         ],
         'virtualenvwrapper.project.template': [
             'base = scaffold.virtualenvwrapper:template',
         ],
-    }
-
-
-}
-
-setup(**config)
+    },
+)
