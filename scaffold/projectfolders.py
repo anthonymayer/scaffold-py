@@ -21,7 +21,7 @@ def create_folders(project_name, current_directory):
     else:
         make_folder(root_dir)  # Create the root directory
 
-    dirnames = (project_name, 'bin', 'tests', 'docs')
+    dirnames = (project_name, 'tests')
 
     # Create all the other directories
     for item in dirnames:

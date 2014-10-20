@@ -1,5 +1,5 @@
 [tox]
-project = scaffold
+project = {{project_name}}
 envlist = py26,py27,py34,pypy
 skipsdist = true
 
@@ -8,13 +8,14 @@ install_command = pip install {opts} {packages}
 deps = -rrequirements-dev.txt
 commands =
     coverage erase
-    coverage run {envbindir}/nosetests {posargs:tests}
-    coverage report --show-missing --fail-under 74
+    coverage run -m pytest {posargs:tests}
+    coverage report --show-missing --fail-under 100
     flake8 {[tox]project} tests setup.py
     pylint {[tox]project} tests setup.py
 
 [testenv:venv]
 envdir = venv-{[tox]project}
+whitelist_externals = /bin/sh
 commands =
 
 [testenv:docs]

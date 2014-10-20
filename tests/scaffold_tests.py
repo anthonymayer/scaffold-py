@@ -37,9 +37,7 @@ def test_create_folders():
     assert_folder_exists(test_dir, project_name)  # /root/monkey exists
     project_root = os.path.join(test_dir, project_name)
 
-    assert_folder_exists(project_root, 'bin')  # /root/monkey/bin exists
     assert_folder_exists(project_root, 'tests')  # /root/monkey/tests exists
-    assert_folder_exists(project_root, 'docs')  # /root/monkey/docs exists
     # /root/monkey/monkey exists
     assert_folder_exists(project_root, project_name)
 
@@ -55,30 +53,6 @@ def test_create_init_files():
     assert_file_exists(project_root, project_name, '__init__.py')
 
 
-def test_create_test_files():
-    project_name = 'balloonpants'
-    # Create the project folders
-    projectfolders.create_folders(project_name, test_dir)
-    project_root = projectfolders.create_path(test_dir, project_name)
-    projectfiles.write_tests(project_name, project_root)
-
-    assert_file_exists(
-        project_root,
-        'tests',
-        '{project_name}_tests.py'.format(project_name=project_name),
-    )
-
-
-def test_create_setup_file():
-    project_name = 'hipster-tears'
-    # Create the project folders
-    projectfolders.create_folders(project_name, test_dir)
-    project_root = projectfolders.create_path(test_dir, project_name)
-    projectfiles.write_setup(project_name, project_root)
-
-    assert_file_exists(project_root, None, 'setup.py')
-
-
 def test_create_all_files():
     '''Bring all of the individual file tests together under one roof...'''
     project_name = 'mongodb-is-webscale-webscale-i-tells-ya'
@@ -91,8 +65,6 @@ def test_create_all_files():
 
     assert_file_exists(project_root, 'tests', '__init__.py')
     assert_file_exists(project_root, project_name, '__init__.py')
-    assert_file_exists(project_root, 'tests', '{project_name}_tests.py'.format(
-        project_name=project_name))
     assert_file_exists(project_root, None, 'setup.py')
 
 
