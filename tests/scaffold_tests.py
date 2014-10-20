@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import os
 import shutil  # Used for recursively deleting directories
 
@@ -11,11 +13,11 @@ def setup():
     # Create a temporary directory that we will delete later upon test
     # completion
     os.mkdir(test_dir)
-    print 'root test directory: {dir}'.format(dir=test_dir)
+    print('root test directory: {dir}'.format(dir=test_dir))
 
 
 def teardown():
-    print 'attempting to tear down {dir}'.format(dir=test_dir)
+    print('attempting to tear down {dir}'.format(dir=test_dir))
     # Recursively deletes the directory and all of its contents
     shutil.rmtree(test_dir)
 

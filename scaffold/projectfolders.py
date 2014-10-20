@@ -1,4 +1,6 @@
 """Creates the folder skeleton for a new Python project"""
+from __future__ import print_function
+
 import os
 from textwrap import dedent
 
@@ -37,10 +39,10 @@ def make_folder(path, prefix=''):
             path_=path)
         raise IOError(000, err_msg, '')
 
-    print "create: {prefix} {path_}".format(
+    print('create: {prefix} {path_}'.format(
         prefix=prefix,
         path_=os.path.abspath(path)
-    )
+    ))
 
 
 def create_path(current_directory, new_folder_name):

@@ -1,6 +1,8 @@
 """Creates a project skeleton for a new python project, per the recommended steps
 in Learn Python the Hard Way Exercise #46 (http://learnpythonthehardway.org/book/ex46.html)"""
 
+from __future__ import print_function
+
 import argparse
 import os
 
@@ -42,7 +44,7 @@ def main():
         # Creates all of the project files we need
         projectfiles.create_files(args.project[0], cur_dir)
     except IOError as e:
-        print e
+        print(e)
 
 if __name__ == "__main__":
     main()

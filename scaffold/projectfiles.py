@@ -1,4 +1,6 @@
 """An extremely ghetto (but functional) way to create the necessary .py files for the scaffold"""
+from __future__ import print_function
+
 import os
 import subprocess
 from textwrap import dedent
@@ -61,7 +63,8 @@ def print_file(path, prefix=' ++++++'):
     print(
         "create: {prefix} {path_}".format(
             prefix=prefix,
-            path_=os.path.abspath(path))
+            path_=os.path.abspath(path),
+        )
     )
 
 
