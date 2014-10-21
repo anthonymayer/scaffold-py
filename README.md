@@ -1,28 +1,28 @@
 # Scaffold for Python
 
-Inspired by [Zed Shaw's](http://www.zedshaw.com/) recommended Python project structure from [Learn Python the Hard Way](http://learnpythonthehardway.org/) exercise [#46](http://learnpythonthehardway.org/book/ex46.html).
+This project is a fork of https://github.com/Aaronontheweb/scaffold-py. The goal is to make it as DRY as possible to setup and maintain a python package with a baseline of utilities ready to go. Current utilities include [pre-commit](http://pre-commit.com/), [tox](https://tox.readthedocs.org), [flake8](http://flake8.readthedocs.org/), [pytest](http://pytest.org/), and more. These utilities were picked as a baseline, but the plan is to make the scaffolded utilities configurable and make it easy to add more.
 
 Each project you scaffold will create the following directory structure:
 
 ```
 /[projectname]/
+/[projectname]/.coveragerc
+/[projectname]/.gitattributes
+/[projectname]/.gitignore
+/[projectname]/.pre-commit-config.yaml
+/[projectname]/Makefile
+/[projectname]/pylintrc
+/[projectname]/requirements-dev.txt
 /[projectname]/setup.py
-/[projectname]/bin
-/[projectname]/docs
+/[projectname]/tox.ini
 /[projectname]/[projectname]
 /[projectname]/[projectname]/__init__.py
 /[projectname]/tests
 /[projectname]/tests/__init__.py
-/[projectname]/tests/[projectname]_tests.py
+
 ```
 
-Both `setup.py` and `[projectname]_tests.py` are set up automatically to reference your project name as a module. The rest is up to you!
-
-## Installing Scaffold
-
-You can view the scaffold package on PyPi here: http://pypi.python.org/pypi/Scaffold/0.1.3
-
-To install, simply use `pip install scaffold`
+`setup.py` and `tox.ini` are set up automatically to reference your project name.
 
 ## Running Scaffold
 
@@ -66,5 +66,10 @@ Licensed under Apache 2.0 - see license.txt for details.
 
 ## Contribution
 
-I'm not the most experienced Python programmer on the planet, so patches are most certainly welcome :)
--[Aaron Stannard](http://www.aaronstannard.com/)
+Pull requests are extremely welcome.
+
+## Ideas
+- Instead of generating all the necessary static files for a project, generate some sort of very lightweight files that would then be combined with base files from a package. That way if base configurations changed, the package could just be bumped and include anything new.
+- Add an update command that would figure out the state of the project, update any configuration files, and add any new ones.
+- Build an entire package management service that would combine some local configuration with some remote base configuration.
+- Some sort of integration with [pip-tools](https://github.com/nvie/pip-tools) to manage out of date dependencies. Could be as simple as a pip-tools [pre-commit hook](http://pre-commit.com/#new-hooks).
